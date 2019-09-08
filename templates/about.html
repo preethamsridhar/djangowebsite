@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> About Page </h1>
+<p1>This is rendered through template</p1>
+<h2>Rendered through context</h2>
+<p>{{my_text}}</p>
+<p>{{my_number}}</p>
+
+<ul>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+</ul>
+
+<ul>
+    {% for item in country %}
+        <li>{{forloop.counter}} - {{item}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
