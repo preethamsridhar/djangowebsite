@@ -15,7 +15,11 @@
 
 <ul>
     {% for item in country %}
-        <li>{{forloop.counter}} - {{item}}</li>
+        {% if item == "usa" %}
+            <li> {{forloop.counter}} - {{item}} = {{999|add:22}} </li>
+        {% else %}
+            <li>{{forloop.counter}} - {{item}}</li>
+        {% endif %}
     {% endfor %}
 </ul>
 {% endblock %}
