@@ -20,7 +20,7 @@ def contact_view(request):
 def about_view(request):
     # return HttpResponse("<h1>Contact Page</h1>")
     context_text = {
-        "my_text": "I am a Django Developer",
+        "title": "i am a Django Developer",
         "my_number": 123456,
         "country": [
             "usa",
