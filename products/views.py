@@ -1,10 +1,35 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 from .forms import ProductForm, RawProductForm
 from django.http import HttpResponse
+
+
+def product_delete_view(request, my_id):
+    # obj = Product.objects.get(id=my_id)
+    obj = get_object_or_404(Product, id=my_id)
+    print("The object is ", obj)
+    if request.method == "POST":
+        # confirming the delete
+        obj.delete()
+        return redirect('../../')  # redirect pages
+    context = {
+        'object': obj
+    }
+    return render(request, 'products/product_delete.html', context)
+
+
+def dynamic_lookup_view(request, my_id):
+    # obj = Product.objects.get(id=my_id)
+    obj = get_object_or_404(Product, id=my_id)
+    if request.method == "POST":
+        obj.delete()
+    context = {
+        'object': obj
+    }
+    return render(request, 'products/product_detail.html', context)
 
 
 def render_initial_data(request):
