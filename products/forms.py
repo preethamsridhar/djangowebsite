@@ -25,7 +25,8 @@ class ProductForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'price'
+            'price',
+            'summary'
         ]
 
     def clean_title(self, *args, **kwargs):

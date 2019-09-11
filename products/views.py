@@ -7,6 +7,21 @@ from .forms import ProductForm, RawProductForm
 from django.http import HttpResponse
 
 
+def render_initial_data(request):
+    initial_data = {
+        "title": "My awesome title",
+        "description": "This is dummy description through initial data"
+    }
+    obj = Product.objects.get(id=1)
+    form = ProductForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+    context = {
+        "form": form
+    }
+    return render(request, 'products/product_create.html', context)
+
+
 # Create your views here.
 def product_create_view(request):
     form = ProductForm(request.POST or None)
