@@ -7,6 +7,14 @@ from .forms import ProductForm, RawProductForm
 from django.http import HttpResponse
 
 
+def product_list_view(request):
+    query_set = Product.objects.all()
+    context = {
+        "object_list": query_set
+    }
+    return render(request, 'products/product_list.html', context)
+
+
 def product_delete_view(request, my_id):
     # obj = Product.objects.get(id=my_id)
     obj = get_object_or_404(Product, id=my_id)
