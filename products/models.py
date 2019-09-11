@@ -13,5 +13,6 @@ class Product(models.Model):
     summary = models.TextField(blank=True, null=False)
     featured = models.BooleanField(default=False)
 
-    def get_absolute_url(self): # this is incase if change the url later
-        return f"/product/{self.id}/"
+    def get_absolute_url(self): # this is in-case if change the url later
+        # return f"/product/{self.id}/"
+        return reverse("product_detail", kwargs={"my_id": self.id})  # my_id should match with id used in the url
