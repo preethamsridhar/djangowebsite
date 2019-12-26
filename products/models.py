@@ -15,4 +15,4 @@ class Product(models.Model):
 
     def get_absolute_url(self): # this is in-case if change the url later
         # return f"/product/{self.id}/"
-        return reverse("product_detail", kwargs={"my_id": self.id})  # my_id should match with id used in the url
+        return reverse("products:product-detail", kwargs={"id": self.id})  # my_id should match with id used in the url
