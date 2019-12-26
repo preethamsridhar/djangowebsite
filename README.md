@@ -1,3 +1,3 @@
-Hello World. This is Django Website Developed from Scratch
+This is Django Website Developed from Scratch
 -By Preetham Sridhar, Jellyfish Technologies, India
 
